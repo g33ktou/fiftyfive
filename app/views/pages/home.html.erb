@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<script>
+  $(document).ready(function() {
+    $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+      var page = $(this).attr('href'); // Page cible
+      var speed = 750; // Durée de l'animation (en ms)
+      $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+      return false;
+    });
+  });
+</script>
+<div class="banner banner-image">
+  <div class="banner-inner">
+    <h1>Bienvenu sur votre plateforme</h1>
+    <a class="js-scrollTo link-white"  href="#page-1">Voir le classement actuel</a>
+  </div>
+</div>
+<div id="page-1">
+  <div class="contentWrapper">
+    <div class="container">
+      <div class="row mt+">
+      <%= render 'shared/results' %>
+      </div>
+    </div>
+  </div>
+</div>
